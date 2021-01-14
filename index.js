@@ -6,5 +6,8 @@ for(var i=0; i < document.querySelectorAll(".drum").length; i++){
 }
 
 function handleClick(){
-  alert("I got clicked haha!");
+
+  this.style.color = "blue";
+  var audio = new Audio('sounds/snare.mp3');
+  audio.play();
 }
