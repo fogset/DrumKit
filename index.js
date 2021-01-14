@@ -1,3 +1,4 @@
+//Detecting Button Press
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", handleClick);
 }
@@ -5,8 +6,17 @@ for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
 function handleClick() {
 
   var buttonInnerHTML = this.innerHTML;
+  playSound(buttonInnerHTML);
 
-  switch (buttonInnerHTML) {
+}
+
+//Detecting KeyPress
+document.addEventListener("keydown", function(event){
+  playSound(event.key);
+});
+
+function playSound(key){
+  switch (key) {
     case "w":
       var tom1 = new Audio("sounds/tom-1.mp3");
       tom1.play();
