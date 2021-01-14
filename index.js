@@ -7,12 +7,14 @@ function handleClick() {
 
   var buttonInnerHTML = this.innerHTML;
   playSound(buttonInnerHTML);
+  buttonAnimation(buttonInnerHTML);
 
 }
 
 //Detecting KeyPress
 document.addEventListener("keydown", function(event){
   playSound(event.key);
+  buttonAnimation(event.key);
 });
 
 function playSound(key){
@@ -47,4 +49,14 @@ function playSound(key){
       break;
     default:
   }
+}
+
+function buttonAnimation(currentKey){
+  var activeButton = document.querySelector("."+ currentKey);
+
+  activeButton.classList.add("pressed");
+
+  setTimeout(function(){
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
